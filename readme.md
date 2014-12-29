@@ -76,13 +76,14 @@ Tilt the robot head.
 
 Concluding Thoughts
 -------------------
-This is a first cut at a solution. I'd love to have feedback. Thanks to "Pilliq" for the Scratch library and Alan at Dawn Robotics for py_websockets_bot and for the robot itself.
+This is a first cut at a solution. I'd love to have feedback. I'm sure my Python sucks.
 
 Thanks
 ------
+Thanks to "Pilliq" for the Scratch library and Alan at Dawn Robotics for py_websockets_bot and for the robot itself.
 
-https://github.com/pilliq/scratchpy
-http://www.dawnrobotics.co.uk/raspberry-pi-camera-robot-chassis-bundle/
+- https://github.com/pilliq/scratchpy
+- http://www.dawnrobotics.co.uk/raspberry-pi-camera-robot-chassis-bundle/
 
 License
 -------
