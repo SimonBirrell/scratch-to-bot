@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Robot
+Comment=Launch scratch_to_bot that intermediates between Scratch and RobotPi 
+Icon=/usr/share/pixmaps/openbox.xpm
+Exec=lxterminal -t "Executing scratch_to_bot" --working-directory=/home/pi/RobotPi/ -e ./robot.sh 
+Type=Application
+Encoding=UTF-8
+Terminal=false
+Categories=None;
