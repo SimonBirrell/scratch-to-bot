@@ -21,15 +21,17 @@ Installing software on Scarlett Pi
 Launching the software
 ----------------------
 
-1. Ensure that the robot is switched on and that you are on the same WiFi network.
+1. Follow the instructions to install [py_websockets_bot](https://bitbucket.org/DawnRobotics/py_websockets_bot) and [scratchpy](https://github.com/pilliq/scratchpy).
 
-2. Launch Scratch
+2. Ensure that the robot is switched on and that you are on the same WiFi network.
 
-3. Launch the Python script from a terminal window with
+3. Launch Scratch
+
+4. Launch the Python script from a terminal window with
 
      python scratch_to_bot.py
 
-4. In Scratch, right click on one of the sensor blocks and select "Enable Remote Sensor Communications"
+5. In Scratch, right click on one of the sensor blocks and select "Enable Remote Sensor Communications"
 
 Programming the robot
 ---------------------
