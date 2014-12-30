@@ -28,9 +28,9 @@ Launching the software
 3. Launch Scratch
 
 4. Launch the Python script from a terminal window with
-
-     python scratch_to_bot.py
-
+```
+python scratch_to_bot.py
+```
 5. In Scratch, right click on one of the sensor blocks and select "Enable Remote Sensor Communications"
 
 Programming the robot
