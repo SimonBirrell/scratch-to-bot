@@ -13,9 +13,9 @@ Installing software on Scarlett Pi
 1. Copy all the code to a new directory under /home
 
 2. Add execute permission to the Python script
-
-     chmod +x scratch_to_bot.py
-
+```
+chmod +x scratch_to_bot.py
+```
 3. Adjust the hostname in scratch_to_bot.py
 
 Launching the software
@@ -38,7 +38,7 @@ Programming the robot
 
 Program the robot using the broadcast block in Scratch. Inside the broadcast block, specify a command such as
 
-robot forward 1
+    robot forward 1
 
 In the configuration of my robot I have an ultrasonic sensor to measure distance to the nearest obstacle. This appears as a sensor called "distance" inside Scratch and ranges from 0mm to 400mm.
 
