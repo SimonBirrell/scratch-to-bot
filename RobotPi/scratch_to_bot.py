@@ -112,7 +112,11 @@ class ScratchReader(threading.Thread):
                 print "deleting"
                 del Input_buffer[i]  
             else:    
-                i = i + 1          
+                i = i + 1        
+                
+    def sensor_update(self, params):
+        print "updating sensors" 
+        self.scratch.sensorupdate(params)             
                 
     def shutdown(self):
         print "Shutting down Scratch Reader" 
@@ -144,13 +148,14 @@ class BufferReader():
 ############################# Robot Class ##########################################            
         
 class Robot:
-    def __init__(self, stop_motors_lock ):
+    def __init__(self, stop_motors_lock, sensor_update ):
         print "Initializing robot class"
         hostname = ROBOT_HOSTNAME
         self.speed = DEFAULT_SPEED
         self.neck_angle = 0
         self.head_angle = 0
         self.stop_motors_lock = stop_motors_lock
+        self.sensor_update_function = sensor_update
         if not DEBUG: 
             self.bot = py_websockets_bot.WebsocketsBot( hostname )
             print "Connected to robot"
@@ -360,7 +365,7 @@ class Robot:
             ultrasonic = sensor_dict["ultrasonic"]
             ultrasonic_distance = ultrasonic["data"] 
             print "Ultrasonic Distance ", ultrasonic_distance
-            s.sensorupdate({'distance' : ultrasonic_distance})
+            self.sensor_update_function({'distance' : ultrasonic_distance})
             
     def shutdown(self):
         print "Shutting down robot" 
@@ -383,9 +388,9 @@ def update_robot_loop(robot):
         except KeyboardInterrupt:
             print "Update thread received keyboard interrupt"      
             break
-        except:
-            print "update failed"
-            break    
+       # except:
+       #        print "update failed"
+       #        break    
     print "Exiting robot update thread"        
             
 ############################# End of Utility robot functions #######################                        
@@ -443,7 +448,7 @@ if __name__ == "__main__":
             # BufferProcessor pulls commands off the queue
             buffer_reader = BufferReader(buffer_lock)
             # This is the Robot
-            robot = Robot(stop_motors_lock)
+            robot = Robot(stop_motors_lock, scratch_reader.sensor_update)
             while True:
                 # Interpret Scratch commands on main thread
                 next_command = buffer_reader.get_next_command()
