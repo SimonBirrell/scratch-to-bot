@@ -213,6 +213,11 @@ class Robot:
     def robot_forward(self, distance):
         global Stop_motors_immediately
         
+        if distance < 0:
+            direction = -1
+        else:
+            direction = 1
+        
         print "Move robot forward ", distance, " cm"
         if self.speed != 0:
             print "Speed", self.speed
@@ -222,7 +227,7 @@ class Robot:
             while True:
                 if time.time() > timeout:
                     break
-                motor_speed = self.speed * SPEED_FACTOR 
+                motor_speed = self.speed * SPEED_FACTOR * direction
                 stop_motors = False
                 with self.stop_motors_lock:  
                     if Stop_motors_immediately:
